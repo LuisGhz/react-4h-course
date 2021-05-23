@@ -1,4 +1,3 @@
-import React from 'react';
 import './index.css';
 
 export const Card = props => {
@@ -8,6 +7,7 @@ export const Card = props => {
       <div className="container">
         <h4><b>{ props.name }</b></h4>
         <p>{ props.title }</p>
+        <div>{ props.children }</div>
       </div>
     </div>
   );
