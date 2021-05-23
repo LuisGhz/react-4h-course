@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 
-export function Card(props) {
+export const Card = props => {
   return (
     <div className="card">
       <img src={`${ props.avatar }`} alt="Avatar" style={{ width: '100%' }} />
