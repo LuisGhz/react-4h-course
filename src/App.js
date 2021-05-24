@@ -6,13 +6,9 @@ import { YesNoButtons } from 'yes-no-buttons/index';
 function App() {
   const [name, setName] = useState('Edwin');
 
-  const changeNameHandler = () => {
-    setName( faker.name.firstName() );
-  }
+  const changeNameHandler = () => setName( faker.name.firstName() );
 
-  const changeNameFromInputHandler = event => {
-    setName(event.target.value);
-  }
+  const changeNameFromInputHandler = event => setName(event.target.value);
 
   return (
     <div className="App">
