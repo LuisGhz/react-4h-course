@@ -12,3 +12,14 @@
 .container {
   padding: 2px 16px;
 }
+
+.button {
+  background-color: green;
+  border: 0;
+  color: white;
+  padding: .5rem 1rem;
+}
+
+.center-text {
+  text-align: center;
+}
