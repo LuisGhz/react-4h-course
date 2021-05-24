@@ -7,6 +7,7 @@ export const Card = props => {
       <div className="container">
         <h4><b>{ props.name }</b></h4>
         <p>{ props.title }</p>
+        <p><input type="text" onChange={ props.onChangeNameFromInput } value={ props.name } /></p>
         <p className="center-text"><button className="button" onClick={ () => props.onChangeName() } >Random name</button></p>
         <div>{ props.children }</div>
       </div>
