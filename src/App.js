@@ -10,6 +10,10 @@ function App() {
     setName( faker.name.firstName() );
   }
 
+  const changeNameFromInputHandler = event => {
+    setName(event.target.value);
+  }
+
   return (
     <div className="App">
       <Card 
@@ -17,6 +21,7 @@ function App() {
         name={ name }
         title={ 'Customer Research Developer' }
         onChangeName={ () => changeNameHandler() }
+        onChangeNameFromInput={ changeNameFromInputHandler }
       ><YesNoButtons /></Card>
     </div>
   );
