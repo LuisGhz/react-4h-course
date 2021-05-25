@@ -8,3 +8,7 @@
   color: white;
   padding: .5rem 1rem;
 }
+
+.button-red {
+  background-color: red;
+}
