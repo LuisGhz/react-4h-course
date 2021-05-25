@@ -9,6 +9,14 @@
   padding: .5rem 1rem;
 }
 
-.button-red {
+.pink-button {
+  background-color: pink;
+}
+
+.red-button {
   background-color: red;
+}
+
+.bold-text {
+  font-weight: bold;
 }
