@@ -7,7 +7,7 @@ function App() {
   const [name, setName] = useState('Edwin');
   const [showCard, setShowCard] = useState(true);
 
-  const [card, setCard] = useState([
+  const [cards, setCard] = useState([
     {
       avatar: 'https://cdn.fakercloud.com/avatars/mwarkentin_128.jpg',
       name: name,
@@ -30,11 +30,14 @@ function App() {
   return (
     <div className="App">
       <button className="button" onClick={ () => toggleCard() } style={{ 'margin': '1rem 0' }}>Show / Hide card</button>
-      { showCard && <Card 
-        avatar={ 'https://cdn.fakercloud.com/avatars/mwarkentin_128.jpg' }
-        name={ name }
-        title={ 'Customer Research Developer' }
-      /> }
+      { showCard && (
+      cards.map(card => 
+        <Card 
+          avatar={ 'https://cdn.fakercloud.com/avatars/mwarkentin_128.jpg' }
+          name={ name }
+          title={ 'Customer Research Developer' }
+        />)
+      )}
     </div>
   );
 }
