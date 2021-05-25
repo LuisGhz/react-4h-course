@@ -6,25 +6,31 @@ import './App.css';
 function App() {
   const [showCard, setShowCard] = useState(true);
 
-  const [cards, setCard] = useState([
+  const [cards, setCards] = useState([
     {
       avatar: 'https://cdn.fakercloud.com/avatars/mwarkentin_128.jpg',
-      name: 'Edwin',
+      name: 'Edwin 1',
       title: 'Customer Research Developer'
     },
     {
       avatar: 'https://cdn.fakercloud.com/avatars/mwarkentin_128.jpg',
-      name: 'Edwin',
+      name: 'Edwin 2',
       title: 'Customer Research Developer'
     },
     {
       avatar: 'https://cdn.fakercloud.com/avatars/mwarkentin_128.jpg',
-      name: 'Edwin',
+      name: 'Edwin 3',
       title: 'Customer Research Developer'
     },
   ]);
 
   const toggleCard = () => setShowCard(!showCard);
+
+  const deleteCardHandler = (index)  => {
+    const cards_copy = [...cards];
+    cards_copy.splice(index, 1);
+    setCards(cards_copy)
+  }
 
   return (
     <div className="App">
@@ -35,6 +41,7 @@ function App() {
           avatar={ avatar }
           name={ name }
           title={ title }
+          onDelete={ () => deleteCardHandler(index) }
         />)
       )}
     </div>
