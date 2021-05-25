@@ -7,11 +7,29 @@ function App() {
   const [name, setName] = useState('Edwin');
   const [showCard, setShowCard] = useState(true);
 
+  const [card, setCard] = useState([
+    {
+      avatar: 'https://cdn.fakercloud.com/avatars/mwarkentin_128.jpg',
+      name: name,
+      title: 'Customer Research Developer'
+    },
+    {
+      avatar: 'https://cdn.fakercloud.com/avatars/mwarkentin_128.jpg',
+      name: name,
+      title: 'Customer Research Developer'
+    },
+    {
+      avatar: 'https://cdn.fakercloud.com/avatars/mwarkentin_128.jpg',
+      name: name,
+      title: 'Customer Research Developer'
+    },
+  ]);
+
   const toggleCard = () => setShowCard(!showCard);
 
   return (
     <div className="App">
-      <button className="button" onClick={ () => toggleCard() } >Show / Hide card</button>
+      <button className="button" onClick={ () => toggleCard() } style={{ 'margin': '1rem 0' }}>Show / Hide card</button>
       { showCard && <Card 
         avatar={ 'https://cdn.fakercloud.com/avatars/mwarkentin_128.jpg' }
         name={ name }
