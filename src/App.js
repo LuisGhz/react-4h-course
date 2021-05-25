@@ -24,12 +24,10 @@ function App() {
     },
   ]);
 
-  const buttonStyle = {
-    backgroundColor: null
-  }
+  const buttonClasses = ['button']
 
-  if (cards.length < 3) buttonStyle.backgroundColor = 'lightpink';
-  if (cards.length < 2) buttonStyle.backgroundColor = 'red';
+  if (cards.length < 3) buttonClasses.push('pink-button');
+  if (cards.length < 2) buttonClasses.push('red-button');
 
   const toggleCard = () => setShowCard(!showCard);
 
@@ -47,7 +45,7 @@ function App() {
 
   return (
     <div className="App">
-      <button className="button" onClick={ () => toggleCard() } style={{ 'margin': '1rem 0', ...buttonStyle } }>Show / Hide card</button>
+      <button className={ buttonClasses.join(' ') } onClick={ () => toggleCard() } style={{ 'margin': '1rem 0' } }>Show / Hide card</button>
       { showCard && (
       cards.map(({ avatar, name, title }, index) => 
         <Card key={ index }
