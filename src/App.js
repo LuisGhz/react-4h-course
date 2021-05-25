@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import faker from 'faker';
 import { Card } from 'card/index';
-import { YesNoButtons } from 'yes-no-buttons/index';
 import './App.css';
 
 function App() {
@@ -23,7 +22,7 @@ function App() {
         title={ 'Customer Research Developer' }
         onChangeName={ () => changeNameHandler() }
         onChangeNameFromInput={ changeNameFromInputHandler }
-      ><YesNoButtons /></Card> }
+      /> }
     </div>
   );
 }
