@@ -7,7 +7,7 @@ export const Card = props => {
       <div className="container">
         <h4><b>{ props.name }</b></h4>
         <p>{ props.title }</p>
-        <p className="center-text"><button className="button button-red" >Delete</button></p>
+        <p className="center-text"><button className="button button-red" onClick={ () => props.onDelete() } >Delete</button></p>
         <div>{ props.children }</div>
       </div>
     </div>
