@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import faker from 'faker';
+import styled from 'styled-components';
 import { Card } from 'card/index';
 import './App.css';
+
+const Button = styled.button`
+  background-color: green;
+  border: 0;
+  color: white;
+  padding: .5rem 1rem;
+`;
 
 function App() {
   const [showCard, setShowCard] = useState(true);
@@ -45,6 +53,7 @@ function App() {
 
   return (
     <div className="App">
+      <Button>Show Hide</Button>
       <button className={ buttonClasses.join(' ') } onClick={ () => toggleCard() } style={{ 'margin': '1rem 0' } }>Show / Hide card</button>
       { showCard && (
       cards.map(({ avatar, name, title }, index) => 
