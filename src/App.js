@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
 import faker from 'faker';
-import styled from 'styled-components';
+import styled, { ThemeProvider, css } from 'styled-components';
 import { Card } from 'card/index';
 import './App.css';
 
 const Button = styled.button`
-  background-color: ${ props => props.length > 2 ? 'green' : props.length < 2 ? 'red' : 'pink' };
+  ${ props =>
+  props.color && css `
+    background-color: ${ props => props.length > 2 ? props.theme[ props.color ] : props.length < 2 ? 'red' : 'pink' };
+    `
+  }
   border: 0;
   color: white;
   padding: .5rem 1rem;
 `;
+
+const theme = {
+  primary: 'green',
+  mango: 'yellow'
+}
 
 function App() {
   const [showCard, setShowCard] = useState(true);
@@ -52,20 +61,22 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Button length={ cards.length } >Show Hide</Button>
-      <button className={ buttonClasses.join(' ') } onClick={ () => toggleCard() } style={{ 'margin': '1rem 0' } }>Show / Hide card</button>
-      { showCard && (
-      cards.map(({ avatar, name, title }, index) => 
-        <Card key={ index }
-          avatar={ avatar }
-          name={ name }
-          title={ title }
-          onDelete={ () => deleteCardHandler(index) }
-          onNameChanges={ event =>  changeNameHandler(event, index)}
-        />)
-      )}
-    </div>
+    <ThemeProvider theme={ theme }>
+      <div className="App">
+        <Button color="primary" length={ cards.length } >Show Hide</Button>
+        <button className={ buttonClasses.join(' ') } onClick={ () => toggleCard() } style={{ 'margin': '1rem 0' } }>Show / Hide card</button>
+        { showCard && (
+        cards.map(({ avatar, name, title }, index) => 
+          <Card key={ index }
+            avatar={ avatar }
+            name={ name }
+            title={ title }
+            onDelete={ () => deleteCardHandler(index) }
+            onNameChanges={ event =>  changeNameHandler(event, index)}
+          />)
+        )}
+      </div>
+    </ThemeProvider>
   );
 }
 
