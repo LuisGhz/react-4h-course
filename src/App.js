@@ -1,19 +1,9 @@
 import React, { useState } from 'react';
 import faker from 'faker';
-import styled, { ThemeProvider, css } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { Card } from 'card/index';
 import './App.css';
-
-const Button = styled.button`
-  ${ props =>
-  props.color && css `
-    background-color: ${ props => props.length > 2 ? props.theme[ props.color ] : props.length < 2 ? 'red' : 'pink' };
-    `
-  }
-  border: 0;
-  color: white;
-  padding: .5rem 1rem;
-`;
+import Button from 'elements/button/Button';
 
 const theme = {
   primary: 'green',
