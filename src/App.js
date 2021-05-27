@@ -5,7 +5,7 @@ import { Card } from 'card/index';
 import './App.css';
 
 const Button = styled.button`
-  background-color: green;
+  background-color: ${ props => props.length > 2 ? 'green' : props.length < 2 ? 'red' : 'pink' };
   border: 0;
   color: white;
   padding: .5rem 1rem;
@@ -53,7 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      <Button>Show Hide</Button>
+      <Button length={ cards.length } >Show Hide</Button>
       <button className={ buttonClasses.join(' ') } onClick={ () => toggleCard() } style={{ 'margin': '1rem 0' } }>Show / Hide card</button>
       { showCard && (
       cards.map(({ avatar, name, title }, index) => 
