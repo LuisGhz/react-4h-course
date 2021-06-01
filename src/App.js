@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import faker from 'faker';
 import { ThemeProvider } from 'styled-components';
 import { Card } from 'card/index';
 import './App.css';
