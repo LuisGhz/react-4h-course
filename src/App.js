@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import faker from 'faker';
 import { ThemeProvider } from 'styled-components';
 import axios from 'axios';
 import { Card } from 'card/index';
