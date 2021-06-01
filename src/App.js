@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import faker from 'faker';
 import { ThemeProvider } from 'styled-components';
-import axios from 'axios';
 import { Card } from 'card/index';
 import './App.css';
 import Button from 'elements/button/Button';
@@ -17,7 +16,23 @@ class App extends Component {
     super(props);
 
     this.state = {
-      cards: [],
+      cards: [
+        {
+          avatar: 'https://cdn.fakercloud.com/avatars/mwarkentin_128.jpg',
+          name: 'Edwin 1',
+          title: 'Customer Research Developer'
+        },
+        {
+          avatar: 'https://cdn.fakercloud.com/avatars/mwarkentin_128.jpg',
+          name: 'Edwin 2',
+          title: 'Customer Research Developer'
+        },
+        {
+          avatar: 'https://cdn.fakercloud.com/avatars/mwarkentin_128.jpg',
+          name: 'Edwin 3',
+          title: 'Customer Research Developer'
+        },
+      ],
       showCard: true
     };
   }
@@ -49,10 +64,11 @@ class App extends Component {
           <Button color="primary" length={ this.state.cards.length } onClick={ () => this.toggleCard() } >Show Hide</Button>
           <button className={ buttonClasses.join(' ') } onClick={ () => this.toggleCard() } style={{ 'margin': '1rem 0' } }>Show / Hide card</button>
           { this.state.showCard && (
-          this.state.cards.map(({ name, phone }, index) => 
+          this.state.cards.map(({ avatar, name, title }, index) => 
             <Card key={ index }
+              avatar={ avatar }
               name={ name }
-              phone={ phone }
+              title={ title }
               onDelete={ () => this.deleteCardHandler(index) }
               onNameChanges={ event =>  this.changeNameHandler(event, index)}
             />)
